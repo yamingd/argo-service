@@ -1,0 +1,41 @@
+group 'com.github.yamingd.argo'
+version '2.0'
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'signing'
+
+compileJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+compileTestJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+repositories {
+    mavenLocal()
+
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
+
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+
+        maven { url 'http://maven.oschina.net/content/groups/public/' }
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.github.yamingd:argo-apt:1.2"
+    }
+}
+
+description 'service'

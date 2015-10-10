@@ -1,0 +1,62 @@
+group 'com.github.yamingd.argo'
+version '2.0'
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'signing'
+
+compileJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+compileTestJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+repositories {
+    mavenLocal()
+
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
+
+    mavenCentral()
+}
+
+jar {
+    baseName = 'argo-service'
+}
+
+description 'service'
+
+dependencies {
+    compile 'com.github.yamingd.argo:argo-yaml:1.0'
+    compile 'com.github.yamingd.argo:argo-util:2.0'
+    compile 'com.github.yamingd.argo:argo-db:2.0'
+    compile 'com.github.yamingd.argo:argo-redis:2.1'
+    compile 'com.github.yamingd.argo:annotations:2.0'
+    compile 'org.apache.commons:commons-lang3:3.1'
+    compile 'commons-logging:commons-logging:1.2'
+    compile 'org.aspectj:aspectjrt:1.8.7'
+    compile 'org.aspectj:aspectjweaver:1.8.7'
+    compile 'org.springframework:spring-tx:3.2.12.RELEASE'
+    compile('org.springframework:spring-context:3.2.11.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
+    compile 'com.google.guava:guava:18.0'
+    compile('org.slf4j:slf4j-api:1.7.5') {
+        exclude(module: 'log4j-over-slf4j')
+    }
+    compile 'org.slf4j:jul-to-slf4j:1.5.11'
+    compile 'ch.qos.logback:logback-classic:1.0.13'
+    testCompile 'junit:junit:4.12'
+}
+
+ext {
+    uploadArchive=true
+}
+
+apply from: '../jarwrap.gradle'
+apply from: '../maven_push.gradle'

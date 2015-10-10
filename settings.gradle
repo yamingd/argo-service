@@ -1,0 +1,6 @@
+rootProject.name = 'argo-service'
+include 'core'
+include 'testserviceImpl'
+include 'testservice'
+include 'testclient'
+

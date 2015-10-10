@@ -1,0 +1,33 @@
+group 'com.github.yamingd.argo'
+version '2.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.argo.AppServiceTest"
+
+compileJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+compileTestJava {
+    sourceCompatibility=1.7
+    targetCompatibility=1.7
+    options.encoding='UTF-8'
+}
+
+repositories {
+    mavenLocal()
+
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
+
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':testservice')
+    testCompile 'junit:junit:4.12'
+}

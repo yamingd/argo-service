@@ -1,0 +1,18 @@
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from sourceSets.main.allSource
+    classifier = 'javadoc'
+    baseName = 'argo-service'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+    baseName = 'argo-service'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
