@@ -8,14 +8,14 @@ apply plugin: 'com.github.yamingd.argo-apt'
 mainClassName = "com.argo.testcases.AppServiceClientTest"
 
 compileJava {
-    sourceCompatibility=1.7
-    targetCompatibility=1.7
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
     options.encoding='UTF-8'
 }
 
 compileTestJava {
-    sourceCompatibility=1.7
-    targetCompatibility=1.7
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
     options.encoding='UTF-8'
 }
 
@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.yamingd.argo:annotations:2.0'
+    compile 'com.github.yamingd.argo:annotations:2.1'
     compile project(':core')
     compile project(':testservice')
     compile project(':testserviceImpl')
