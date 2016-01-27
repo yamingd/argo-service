@@ -1,16 +1,14 @@
-package com.argo.service.common;
+package com.argo.service.pool;
 
-import com.argo.service.pool.TrackingThreadPoolTaskExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by user on 12/27/14.
  */
-@Component
-public class AsyncTaskPool implements InitializingBean{
+public class AsyncTaskPool implements InitializingBean, DisposableBean{
 
     public static final Logger logger = LoggerFactory.getLogger(AsyncTaskPool.class);
 
@@ -36,4 +34,8 @@ public class AsyncTaskPool implements InitializingBean{
         return pool;
     }
 
+    @Override
+    public void destroy() throws Exception {
+        pool.destroy();
+    }
 }
