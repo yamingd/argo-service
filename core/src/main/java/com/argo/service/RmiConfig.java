@@ -42,6 +42,7 @@ public class RmiConfig {
         return config;
     }
 
+    private Integer asyncTrack = 300;
     private boolean enabled = false;
     private List<String> hosts;
     private Integer port = 10990;
@@ -68,5 +69,13 @@ public class RmiConfig {
 
     public void setPort(Integer port) {
         this.port = port;
+    }
+
+    public Integer getAsyncTrack() {
+        return asyncTrack;
+    }
+
+    public void setAsyncTrack(Integer asyncTrack) {
+        this.asyncTrack = asyncTrack;
     }
 }

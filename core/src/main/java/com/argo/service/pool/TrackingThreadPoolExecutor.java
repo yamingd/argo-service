@@ -1,5 +1,6 @@
 package com.argo.service.pool;
 
+import com.argo.service.RmiConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -127,7 +128,7 @@ public class TrackingThreadPoolExecutor extends ThreadPoolExecutor {
                 logger.info("{}", executor);
 
                 try {
-                    Thread.sleep(30 * 1000);
+                    Thread.sleep(RmiConfig.instance.getAsyncTrack() * 1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

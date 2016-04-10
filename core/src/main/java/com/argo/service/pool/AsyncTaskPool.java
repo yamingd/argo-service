@@ -1,5 +1,6 @@
 package com.argo.service.pool;
 
+import com.argo.service.RmiConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -17,6 +18,7 @@ public class AsyncTaskPool implements InitializingBean, DisposableBean{
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        RmiConfig.load();
         cores = Runtime.getRuntime().availableProcessors();
         this.pool = createPool();
         logger.info("AsyncTaskPool Created.");
